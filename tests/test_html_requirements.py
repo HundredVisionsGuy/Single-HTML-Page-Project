@@ -28,5 +28,5 @@ def test_files_for_required_elements(element, num, files):
         assert actual == num
 
 
-def test_for_presence_of_html_files():
+def test_for_presence_of_html_files(files):
     assert len(files) > 0

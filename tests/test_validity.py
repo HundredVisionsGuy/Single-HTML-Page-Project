@@ -3,7 +3,7 @@ Test for HTML and CSS validity
 """
 from file_clerk import clerk
 import pytest
-from webcode_tk import html_tools as html
+from webcode_tk import css_tools as css
 from webcode_tk import validator_tools as validator
 
 
@@ -23,17 +23,22 @@ for file in html_files:
 
 
 css_results = []
-# css_files = clerk.get_all_files_of_type("single_html_page/", "css")
-for file in html_files:
-    validator_results = validator.get_markup_validity(file)
+css_files = clerk.get_all_files_of_type("single_html_page/", "css")
+for file in css_files:
+    # Get code
+    code = clerk.file_to_string(file)
+
+    # validate code
+    css_validation_results = validator.validate_css(code)
+    is_valid = validator.is_css_valid(css_validation_results)
     expected = f"{file}: No Errors Found."
-    for error in validator_results:
-        error_message = error.get("message")
-        if "CSS" in error_message:
+    if is_valid:
+        css_results.append((expected, expected))
+    else:
+        errors = validator.get_css_errors_list(css_validation_results)
+        for error in errors:
             result = f"{file}: {error_message}"
             css_results.append((result, expected))
-        else:
-            continue
 
 
 @pytest.mark.parametrize("result,expected", html_results)
@@ -43,4 +48,5 @@ def test_html_validity(result, expected):
 
 @pytest.mark.parametrize("result,expected", css_results)
 def test_css_validity(result, expected):
+    print(file)
     assert result == expected
