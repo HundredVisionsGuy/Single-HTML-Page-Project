@@ -32,7 +32,6 @@ for file in html_files:
                 css_sheet = css.Stylesheet(file, tag.text, "styletag")
                 file_data.append(css_sheet)
     css_styles_by_html_files.append({"file": file, "stylesheets": file_data})
-print(css_styles_by_html_files)
 
 
 @pytest.fixture
