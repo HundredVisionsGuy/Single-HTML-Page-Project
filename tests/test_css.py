@@ -10,28 +10,24 @@ from webcode_tk import html_tools as html
 project_path = "single_html_page/"
 
 # Get all styles (sheets and tags by file)
-css_styles_by_html_files = []
+styles_by_html_files = []
 html_files = html.get_all_html_files(project_path)
 for file in html_files:
-    file_data = []
-    # get all link and style tags
-    head_tags = html.get_elements("head", file)
-    for item in head_tags:
-        for tag in item.contents:
-            if tag == "\n":
-                continue
-            if tag.name == 'link':
-                href = tag.attrs.get("href")
-                if ".css" in href:
-                    if "http" not in href[:5]:
-                        sheet_path = project_path + href
-                        code = clerk.file_to_string(sheet_path)
-                        css_sheet = css.Stylesheet(sheet_path, code)
-                        file_data.append(css_sheet)
-            if tag.name == 'style':
-                css_sheet = css.Stylesheet(file, tag.text, "styletag")
-                file_data.append(css_sheet)
-    css_styles_by_html_files.append({"file": file, "stylesheets": file_data})
+    file_data = css.get_all_stylesheets_by_file(file)
+    styles_by_html_files.append({"file": file, "stylesheets": file_data})
+
+global_color_rules = []
+for file in styles_by_html_files:
+    sheets = file.get("stylesheets")
+    if sheets:
+        for sheet in sheets:
+            rules = sheet.rulesets
+            global_colors = css.get_global_color_details(rules)
+            if global_colors:
+                for gc in global_colors:
+                    global_color_rules.append((file.get("file"), gc))
+
+print(global_color_rules)
 
 
 @pytest.fixture
