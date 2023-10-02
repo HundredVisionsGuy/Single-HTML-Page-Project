@@ -3,7 +3,6 @@ Test for HTML and CSS validity
 """
 from file_clerk import clerk
 import pytest
-from webcode_tk import css_tools as css
 from webcode_tk import validator_tools as validator
 
 

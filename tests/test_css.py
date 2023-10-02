@@ -9,26 +9,20 @@ from webcode_tk import html_tools as html
 
 project_path = "single_html_page/"
 
-# Get all styles (sheets and tags by file)
-styles_by_html_files = []
-html_files = html.get_all_html_files(project_path)
-for file in html_files:
-    file_data = css.get_all_stylesheets_by_file(file)
-    styles_by_html_files.append({"file": file, "stylesheets": file_data})
+# # Get all styles (sheets and tags by file)
+# def get_styles_by_html_files(project_path):
+#     styles_by_html_files = []
+#     html_files = html.get_all_html_files(project_path)
+#     for file in html_files:
+#         file_data = css.get_all_stylesheets_by_file(file)
+#         styles_by_html_files.append({"file": file, "stylesheets": file_data})
+#     return styles_by_html_files
 
-global_color_rules = []
-for file in styles_by_html_files:
-    sheets = file.get("stylesheets")
-    if sheets:
-        for sheet in sheets:
-            rules = sheet.rulesets
-            global_colors = css.get_global_color_details(rules)
-            if global_colors:
-                for gc in global_colors:
-                    global_color_rules.append((file.get("file"), gc))
+styles_by_html_files = css.get_styles_by_html_files(project_path)
+
+global_color_rules = css.get_global_colors(project_path)
 
 print(global_color_rules)
-
 
 @pytest.fixture
 def html_style_tags():
