@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "simple_html_page"}]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 html5validator = "^0.4.2"
 pytest = "^7.4.0"
 webcode-tk = "*"
