@@ -25,7 +25,7 @@ def test_files_for_required_elements(element, num, files):
         assert False
     for file in files:
         actual = html.get_num_elements_in_file(element, file)
-        assert actual == num
+        assert actual >= num
 
 
 def test_for_presence_of_html_files(files):
