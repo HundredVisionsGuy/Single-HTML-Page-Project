@@ -17,7 +17,7 @@ for file in html_files:
     level = ux_tools.get_flesch_kincaid_grade_level(file)
     grade_level_expectations.append((file, level, min_reading_level,
                                      max_reading_level))
-    stats = ux_tools.get_readability_stats(file,["p","div"])
+    stats = ux_tools.get_readability_stats(file, ["p", "div"])
     stats["file"] = file
     file_stats.append(stats)
 
