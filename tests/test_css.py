@@ -49,14 +49,14 @@ def get_font_rules_data(font_tests):
 def get_font_selector_data(font_tests):
     rules_data = []
     for test in font_tests:
-        rules_data.append((test[0],test[2]))
+        rules_data.append((test[0], test[2]))
     return rules_data
 
 
 def get_font_family_data(font_tests):
     rules_data = []
     for test in font_tests:
-        rules_data.append((test[0],test[3]))
+        rules_data.append((test[0], test[3]))
     return rules_data
 
 
@@ -69,6 +69,9 @@ font_family_results = get_font_family_data(font_families_tests)
 @pytest.mark.parametrize("file,rule,goal,expected",
                          global_color_contrast_tests)
 def test_files_for_global_color_contrast(file, rule, goal, expected):
+    # NOTE: make sure the rule is not a list (happens if there's only 1 file)
+    if isinstance(rule, list) and len(rule) == 1:
+        rule = rule[0]
     bg_color = rule.get("background-color")
     bg_color = color_tools.get_hex(bg_color)
     color = rule.get("color")

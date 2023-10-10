@@ -1,5 +1,13 @@
 # Single-HTML-Page-Project
-Assignment description.
+Students will design a single web page project that matches their project plan that they submitted in class.
+
+## Project Requirements
+Are listed in the README file in the `single_html_page` folder.
+You must meet all requirements in the following areas:
+* HTML - meet specific elements
+* Validity - passes the W3C Validator (HTML and CSS)
+* CSS - meet specific CSS requirements (colors & fonts)
+* UX - Meet readability requirements.
 
 ## Instructions
 1. Place all of your project files (HTML, CSS, images, etc.) into the simple_html_page folder.
