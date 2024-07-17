@@ -8,10 +8,11 @@ packages = [{include = "simple_html_page"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-html5validator = "^0.4.2"
-pytest = "^7.4.0"
+html5validator = "*"
+pytest = "*"
 webcode-tk = "*"
 file-clerk = "*"
+poetry-plugin-export = "*"
 
 
 [build-system]
