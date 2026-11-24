@@ -1255,9 +1255,9 @@ regex==2024.5.15 ; python_version >= "3.8" and python_version < "4.0" \
 requests-toolbelt==1.0.0 ; python_version >= "3.8" and python_version < "4.0" \
     --hash=sha256:7681a0a3d047012b5bdc0ee37d7f8f07ebe76ab08caeccfc3921ce23c88d5bc6 \
     --hash=sha256:cccfdd665f0a24fcf4726e690f65639d272bb0637b9b92dfd91a5568ccf6bd06
-requests==2.32.3 ; python_version >= "3.8" and python_version < "4.0" \
-    --hash=sha256:55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760 \
-    --hash=sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6
+requests==2.33.0 ; python_version >= "3.8" and python_version < "4.0" \
+    --hash=sha256:3324635456fa185245e24865e810cecec7b4caf933d7eb133dcde67d48cee69b \
+    --hash=sha256:c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652
 rpds-py==0.19.0 ; python_version >= "3.8" and python_version < "4.0" \
     --hash=sha256:0121803b0f424ee2109d6e1f27db45b166ebaa4b32ff47d6aa225642636cd834 \
     --hash=sha256:06925c50f86da0596b9c3c64c3837b2481337b83ef3519e5db2701df695453a4 \
